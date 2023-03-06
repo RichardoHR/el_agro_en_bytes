@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}
+Tresbolillo
+{% endblock%}
+
+{% block content %}
+<h1>Este es un h1 en tresbolillo</h1>
+<h2>Arboles en Tresbolillo</h2>
+<div>
+    <h2>Para determinar el numero de arboles por hectarea y la cantidad de fertilizante por arbol</h2>
+        <p>Introduzca la distancia entre arboles en metros</p>
+        <form action="{{ url_for('tresbolillo')}}" method="post">
+            <label for="">Distancia entre arboles</label>
+            <input type="text" name="distancia" placeholder="metros entre arboles" required="required">
+            <button type="submit" class="btn btn-primary btn-block btn-large">¡Calcular número de árboles!</button>
+        </form>
+</div>
+<br>
+    {{ salida_tresbolillo }}
+<hr>
+
+
+<h3>Arboles en siembra cuadrado o rectangular por hectárea</h3>
+<div>
+    <p>Introduzca la distancia entre arboles y el ancho de la cama, ambos datos en metros.</p>
+    <form action="{{ url_for('marco_cuadrarectangular')}}" method="post">
+        <label for="">Distancia entre arbolres</label>
+        <input type="text" name="distancia" placeholder="metros entre arboles" required="required">
+        <label for="">Ancho de cama</label>
+        <input type="text" name="ancho" placeholder="en metros" required="required">
+        <button type="submit" class="btn btn-primary btn-block btn-large">¡Calcular número de arboles!</button>
+    </form>
+</div>
+<br>
+    {{ salida_cuadrarectangular }}
+<hr>
+
+
+<h2>Fertilizante por árbol o planta</h2>
+<div>
+    <h3>Determinar la cantidad de fertilizante por arbol</h3>
+        <p>Introduzca la cantidad de arboles y la cantidad de fertilizante</p>
+        <form action="{{ url_for('fertilizante_por_arbol')}}" method="post">
+            <label for="">Cantidad de fertilizante</label>
+            <input type="text" name="fertilizante" placeholder="kg de fertilizante" required="required">
+            <label for="">Cantidad de árboles</label>
+            <input type="text" name="arboles" placeholder="numero de árboles" required="required">
+            <button type="submit" class="btn btn-primary btn-block btn-large">¡Calcular cantidad de fertilizante!</button>
+        </form>
+</div>
+<br>
+{{ salida_fert_arbol }}
+
+{% endblock %}

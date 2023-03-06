@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}
+Grano pequeño
+{% endblock%}
+
+{% block content %}
+<h2>H2 de muestra em grano pequeño</h2>
+<div class="login">
+    <h2>Calculo de semilla de grano pequeño y de fertilizante a doble hilera por hectarea</h2>
+        <p>Introduzca la cantidad de semilla de grano pequeño o fertilizante a utilizar para siembras a DOBLE HILERA</p>
+        <form action="{{url_for('grano_pequeño')}}" method="post">
+            <label for="">Ancho</label>
+            <input type="text" name="ancho" placeholder="Ancho de la cama de siembra" required="required">
+            <label for="">Cantidad de semilla o fertilizante</label>
+            <input type="text" name="semilla" placeholder="kg de semilla o fertilizante" required="required">
+            <button type="submit" class="btn btn-primary btn-block btn-large">¡Calcular!</button>
+        </form>
+</div>
+<br>
+    {{ salida_gramos_metro_lineal }}
+<br>
+<hr>
+<div class="login">
+    <h2>Calculo de semilla de grano pequeño y de fertilizante siembra en plano por hectarea</h2>
+        <p>Introduzca la cantidad de semilla de grano pequeño o fertilizante a utilizar para siembras EN PLANO</p>
+        <form action="{{url_for('grano_peq_plano')}}" method="post">
+            <label for="">Distancia entre chuzos</label>
+            <input type="text" name="distancia_chuzos" placeholder="Distancia entre hileras o chuzos" required="required">
+            <label for="">Cantidad de semilla o fertilizante</label>
+            <input type="text" name="semilla_fertilizante" placeholder="Kg de semilla o fertilizante" required="required">
+            <button type="submit" class="btn btn-primary btn-block btn-large">¡Calcular!</button>
+        </form>
+</div>
+<br>
+    {{ salida_sem_fert_metro_lineal }}
+<br>
+
+{% endblock %}

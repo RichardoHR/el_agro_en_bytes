@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}
+Hilera sencilla
+{% endblock %}
+
+{% block content %}
+<div class="login">
+    <h3>Cálculo de la distancia entre plantas a hilera sencilla</h3>
+        <p>Introduzca el ancho de la cama de siembra (surco) y el numero de semillas o plantas recomendada por hectárea para calcular a que distancia sera necesario depositar la semilla</p>
+        <form action="{{url_for('hilera_sencilla')}}" method="post">
+            <label for="">Ancho de la cama de siembra (surco) en metros</label>
+            <input type="text" name="ancho" placeholder="ejemplo: 0.8 o 1.6" required="required">
+            <label for="">Numero de semillas o plantas a establecer</label>
+            <input type="text" name="semillas" placeholder="ejemplo: 60000" required="required">
+            <button type="submit" class="btn btn-primary btn-block btn-large">¡Calcular distancia!</button>
+        </form>
+</div>
+<br>
+    {{ salida_hilera_sencilla }}
+<br>
+<hr>
+<div>
+    <h3>Calculo de la cantidad de fertilizante por metro lineal, para cultivos en hilera</h3>
+      <p>Aqui va un articulo con la importancia y explicacion de como se hace</p>
+      <p>Introduzca el ancho de la cama de siembra (surco) en metros (ejemplo: 0.8) y la cantidad de fertilizante a aplicar por hectarea en kg.</p>
+      <form action="{{url_for('hilera_fertil')}}" method="post">
+        <label for="">Ancho</label>
+        <input type="text" name="ancho" placeholder="Ancho de la cama de siembra" required="required">
+        <label for="">Cantidad de fertilizante en kg</label>
+        <input type="text" name="fertilizante" placeholder="ejemplo: 200" required="required">
+        <button type="submit" class="btn btn-primary btn-block btn-large">¡Calcular!</button>
+      </form>
+<br>
+    {{ salida_fert_metro_lineal }}
+<br>
+</div>
+
+{% endblock %}

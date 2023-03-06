@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title%}
+Eficiencia
+{% endblock %}
+
+{% block content %}
+<h2>Determinar eficiencia en siembras de granos finos con tapadora y aplicaciones de productos con aspersora de tractor</h2>
+<p>Cuando vamos a establecer cultivos de granos finos o vamos a hacer una aplicacion de productos con nuestra aspersora de tractor es importante tener en cuenta la eficiencia con la que se haran dichos trabajos, puesto que si nos aseguramos en la medida de lo posible que el trabajo se haga lo mas eficiente posible, esto nos hara ser mas efectivos en estos mismos, lo cual conlleva ahorros tanto de dinero, de tiempo y tambien de esfuerzo, ya que se disminuyen problemas mas adelante en el cultivo que nos hagan tomar acciones correctivas. </p>
+<div class="login">
+        <p>Introduzca las medidas máxima y mínima obtenidas en la calibracion de su equipo</p>
+        <form action="{{url_for('eficiencia')}}" method="post">
+            <label for="">Medida máxima</label>
+            <input type="text" name="maxima" placeholder="medida máxima" required="required">
+            <label for="">Medida mínima</label>
+            <input type="text" name="minima" placeholder="medida mínima" required="required">
+            <button type="submit" class="btn btn-primary btn-block btn-large">¡Calcular Eficiencia!</button>
+        </form>
+</div>
+<br>
+    {{ salida_eficiencia }}
+
+{% endblock %}
